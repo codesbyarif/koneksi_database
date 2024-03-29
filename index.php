@@ -1,6 +1,6 @@
 <?php 
 require'functions.php';
-$mahasiswa = query("SELECT * FROM data_mhs");
+$film = query("SELECT * FROM data_film");
 ?>
 
 <!DOCTYPE html>
@@ -9,34 +9,36 @@ $mahasiswa = query("SELECT * FROM data_mhs");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
+    <link rel="stylesheet" href="hias.css">
 </head>
 <body>
-    <h1>Daftar Mahasiswa</h1>
+    <h1>Daftar Film</h1>
+    <a href="tambah.php">Tambah Data Film</a>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
             <th>Aksi</th>
             <th>Gambar</th>
-            <th>NIM</th>
-            <th>Nama</th>
-            <th>Jurusan</th>
-            <th>Email</th>
+            <th>Tahun</th>
+            <th>Judul</th>
+            <th>Bahasa</th>
+            <th>Sutradara</th>
         </tr>
         <?php $i = 1;?>
-        <?php foreach ($mahasiswa as $row ): ?>
+        <?php foreach ($film as $row ): ?>
         <tr>
             <td><?=$i?></td>
             <td>
                 <a href="">ubah | </a>
-                <a href="">hapus</a>
+                <a href="hapus.php?id=<?= $row['id'];?>">hapus</a>
             </td>
             <td>
                 <img src="img/<?= $row['gambar']?>" alt="" width="50">
             </td>
-            <td><?= $row['nim']?></td>
-            <td><?= $row['nama']?></td>
-            <td><?= $row['jurusan']?></td>
-            <td><?= $row['email']?></td>
+            <td><?= $row['tahun']?></td>
+            <td><?= $row['judul']?></td>
+            <td><?= $row['bahasa']?></td>
+            <td><?= $row['sutradara']?></td>
           
         </tr>
         <?php $i++;?>
@@ -44,3 +46,4 @@ $mahasiswa = query("SELECT * FROM data_mhs");
     </table>
 </body>
 </html>
+
