@@ -46,4 +46,27 @@ function cari($keyword){
     return query($query);
 }
 
+function ubah($data){
+    global $koneksi;
+    $id = $data["id"];
+    $judul = htmlspecialchars($data["judul"]);
+    $tahun = htmlspecialchars($data["tahun"]);
+    $sutradara = htmlspecialchars($data["sutradara"]);
+    $bahasa = htmlspecialchars($data["bahasa"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+
+       //query insert ke database
+       $query = "UPDATE data_film SET 
+       judul ='$judul',
+       tahun = '$tahun',
+       sutradara = '$sutradara',
+       bahasa = '$bahasa',
+       gambar = '$gambar'
+       WHERE id = $id
+       
+       ";
+
+       mysqli_query($koneksi,$query);
+       return mysqli_affected_rows($koneksi);
+}
 ?>

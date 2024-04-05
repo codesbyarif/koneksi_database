@@ -42,7 +42,7 @@ if(isset($_POST["cari"])){
         <tr>
             <td><?=$i?></td>
             <td>
-                <a href="">ubah | </a>
+                <a href="ubah.php?id=<?= $row['id'];?>">ubah</a> |
                 <a href="hapus.php?id=<?= $row['id'];?>">hapus</a>
             </td>
             <td>
