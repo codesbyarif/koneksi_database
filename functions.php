@@ -33,4 +33,17 @@ function hapus($id){
     return mysqli_affected_rows($koneksi);
 }
 
+
+function cari($keyword){
+    $query = "SELECT * FROM data_film
+                WHERE 
+                judul LIKE '%$keyword%' OR
+                tahun LIKE '%$keyword%' OR
+                bahasa LIKE '%$keyword%' OR
+                sutradara LIKE '%$keyword%'
+               
+    ";
+    return query($query);
+}
+
 ?>

@@ -1,6 +1,11 @@
 <?php 
 require'functions.php';
 $film = query("SELECT * FROM data_film");
+
+// tombol cari ditekan?
+if(isset($_POST["cari"])){
+    $film = cari($_POST["keyword"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +19,14 @@ $film = query("SELECT * FROM data_film");
 <body>
     <h1>Daftar Film</h1>
     <a href="tambah.php">Tambah Data Film</a>
+    <br><br>
+
+    <form action="" method="POST">
+    <input type="text" name="keyword" size="30" autofocus placeholder="Masukkan kata kunci pencarian" autocomplete="off">
+    <button type="submit" name="cari">Cari</button>
+    </form>
+    <br>
+
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
